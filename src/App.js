@@ -2,7 +2,7 @@ import ExpenseItems from "./components/ExpenseItems";
 
 const App = () => {
   return (
-    <div>
+    <div className="container">
       <ExpenseItems />
     </div>
   );

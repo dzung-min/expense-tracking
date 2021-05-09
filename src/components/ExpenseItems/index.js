@@ -14,6 +14,12 @@ const ExpenseItems = () => {
       title: "Programming Books",
       amount: 120,
     },
+    {
+      id: "e3",
+      date: "2019-9-11",
+      title: "Programming Course",
+      amount: 120,
+    },
   ];
 
   return (
