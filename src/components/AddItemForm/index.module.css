@@ -1,0 +1,33 @@
+.form-container {
+  background-color: thistle;
+  padding: 20px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.input-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.form-container button {
+  background-color: slateblue;
+  border: slateblue;
+  color: white;
+  font-size: 1.5rem;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.input-field {
+  display: flex;
+  flex-direction: column;
+  width: 45%;
+  margin: 10px 0;
+}
+
+.input-field label {
+  margin-bottom: 5px;
+}

@@ -1,5 +1,8 @@
 import { useState } from "react";
 
+import InputWithLabel from "./InputWithLabel";
+import style from "./index.module.css";
+
 const AddItemForm = ({ onSubmitHandle }) => {
   const useValue = (initalValue) => {
     const [value, setValue] = useState(initalValue);
@@ -16,32 +19,23 @@ const AddItemForm = ({ onSubmitHandle }) => {
   const [amount, resetAmount] = useValue("");
   const [date, resetDate] = useValue("");
 
+  const onHandleSubmit = (e) => {
+    e.preventDefault();
+    onSubmitHandle(date.value, title.value, amount.value);
+    resetTitle();
+    resetAmount();
+    resetDate();
+  };
+
   return (
-    <div>
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          onSubmitHandle(date.value, amount.value, date.value);
-          resetTitle();
-          resetAmount();
-          resetDate();
-        }}
-      >
-        <div>
-          <label htmlFor="title">Item title</label>
-          <input type="text" id="title" {...title} />
-        </div>
-        <div>
-          <label htmlFor="amount">Amount</label>
-          <input type="text" id="amount" {...amount} />
-        </div>
-        <div>
-          <label htmlFor="date">Date</label>
-          <input type="date" id="date" {...date} />
-        </div>
-        <button>Add Expense</button>
-      </form>
-    </div>
+    <form onSubmit={onHandleSubmit} className={style["form-container"]}>
+      <div className={style["input-container"]}>
+        <InputWithLabel id="title" label="Item title" value={title} />
+        <InputWithLabel id="amount" label="Amount" value={amount} />
+        <InputWithLabel id="date" type="date" label="Date" value={date} />
+      </div>
+      <button>Add Expense</button>
+    </form>
   );
 };
 
