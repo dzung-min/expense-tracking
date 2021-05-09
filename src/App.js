@@ -2,6 +2,7 @@ import { useState } from "react";
 import { v4 } from "uuid";
 
 import AddItemForm from "./components/AddItemForm";
+import Chart from "./components/Chart";
 import ExpenseItems from "./components/ExpenseItems";
 import Filter from "./components/Filter";
 
@@ -50,6 +51,7 @@ const App = () => {
     <div className="container">
       <AddItemForm onSubmitHandle={handleSubmit} />
       <Filter onSelectFilter={handleFilter} />
+      <Chart chartData={displayItems} />
       <ExpenseItems data={displayItems} />
     </div>
   );
