@@ -3,6 +3,7 @@ import { v4 } from "uuid";
 
 import AddItemForm from "./components/AddItemForm";
 import ExpenseItems from "./components/ExpenseItems";
+import Filter from "./components/Filter";
 
 const App = () => {
   const [items, setItems] = useState([
@@ -26,6 +27,13 @@ const App = () => {
     },
   ]);
 
+  const [displayItems, setDisplayItems] = useState(items);
+
+  const handleFilter = (year) => {
+    const newDisplayItems = items.filter((item) => item.date.includes(year));
+    setDisplayItems(newDisplayItems);
+  };
+
   const handleSubmit = (date, title, amount) => {
     setItems((prevState) => [
       ...prevState,
@@ -41,7 +49,8 @@ const App = () => {
   return (
     <div className="container">
       <AddItemForm onSubmitHandle={handleSubmit} />
-      <ExpenseItems data={items} />
+      <Filter onSelectFilter={handleFilter} />
+      <ExpenseItems data={displayItems} />
     </div>
   );
 };
