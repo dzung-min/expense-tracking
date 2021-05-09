@@ -5,12 +5,13 @@ import AddItemForm from "./components/AddItemForm";
 import Chart from "./components/Chart";
 import ExpenseItems from "./components/ExpenseItems";
 import Filter from "./components/Filter";
+import style from "./App.module.css";
 
 const App = () => {
   const [items, setItems] = useState([
     {
       id: "e1",
-      date: "2019-3-21",
+      date: "2020-3-21",
       title: "Car Insurance",
       amount: 249,
     },
@@ -50,8 +51,10 @@ const App = () => {
   return (
     <div className="container">
       <AddItemForm onSubmitHandle={handleSubmit} />
-      <Filter onSelectFilter={handleFilter} />
-      <Chart chartData={displayItems} />
+      <div className={style["filter-chart"]} style={{ marginBottom: 30 }}>
+        <Filter onSelectFilter={handleFilter} />
+        <Chart chartData={displayItems} />
+      </div>
       <ExpenseItems data={displayItems} />
     </div>
   );

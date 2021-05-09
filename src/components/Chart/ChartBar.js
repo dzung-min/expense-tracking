@@ -6,7 +6,7 @@ const ChartBar = ({ label, value }) => {
       <div className={style["chart-bar"]}>
         <div style={{ height: value + "%", backgroundColor: "blue" }}></div>
       </div>
-      <div>{label}</div>
+      <div style={{ paddingTop: 10 }}>{label}</div>
     </div>
   );
 };
